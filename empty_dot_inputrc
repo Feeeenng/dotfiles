@@ -1,0 +1,43 @@
+# /etc/inputrc 或 ~/.inputrc
+
+# 8-bit 支持
+set input-meta on
+set output-meta on
+
+# ── 补全增强 ──────────────────────────────
+set completion-ignore-case on        # 大小写不敏感
+set show-all-if-ambiguous on         # 单次 Tab 直接列出候选
+set show-all-if-unmodified on        # 无唯一匹配也直接列出
+set completion-map-case on           # - 和 _ 视为相同
+set completion-prefix-display-length 2  # 长公共前缀显示为 ...
+
+# ── 按键绑定 ──────────────────────────────
+# Tab 循环切换候选（Shift+Tab 反向）
+"\t": menu-complete
+"\e[Z": menu-complete-backward
+
+# Home / End
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+"\e[H":  beginning-of-line
+"\e[F":  end-of-line
+
+# Delete / Insert
+"\e[3~": delete-char
+"\e[2~": quoted-insert
+
+# PageUp / PageDown：前缀匹配历史
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+
+# Ctrl+P / Ctrl+N：同上，适合 tmux 里 PageUp 被截获时用
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+
+# Ctrl+左/右方向键：按单词跳跃
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\e[5C":   forward-word
+"\e[5D":   backward-word
+"\e\e[C":  forward-word
+"\e\e[D":  backward-word
