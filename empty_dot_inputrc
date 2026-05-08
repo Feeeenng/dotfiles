@@ -12,9 +12,6 @@ set completion-map-case on           # - 和 _ 视为相同
 #set completion-prefix-display-length 2  # 长公共前缀显示为 ...
 
 # ── 按键绑定 ──────────────────────────────
-# Tab 循环切换候选（Shift+Tab 反向）
-"\t": menu-complete
-"\e[Z": menu-complete-backward
 
 # Home / End
 "\e[1~": beginning-of-line
